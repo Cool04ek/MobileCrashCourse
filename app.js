@@ -6,55 +6,16 @@
 
 import React, { Component } from 'react';
 import {
-  AppRegistry,
   StyleSheet,
-  Text,
   View
 } from 'react-native';
-import {Navigation} from 'react-native-navigation';
+import { Navigation } from 'react-native-navigation';
+import TopicsScreen from './src/TopicsScreen.js'
 
-class react_native_navigation_bootstrap extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit app.js
-        </Text>
-        <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\n'}
-          Cmd+D or shake for dev menu
-        </Text>
-      </View>
-    );
-  }
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
-
-Navigation.registerComponent('react-native-navigation-bootstrap', () => react_native_navigation_bootstrap);
+Navigation.registerComponent('TopicsScreen', () => TopicsScreen);
 Navigation.startSingleScreenApp({
   screen: {
-    screen: 'react-native-navigation-bootstrap',
+    screen: 'TopicsScreen',
     title: 'Navigation Bootstrap'
   }
 });

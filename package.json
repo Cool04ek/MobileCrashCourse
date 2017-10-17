@@ -8,9 +8,22 @@
     "xcode": "open ios/react_native_navigation_bootstrap.xcodeproj"
   },
   "dependencies": {
-    "react-native": "0.44.2",
+    "prop-types": "*",
     "react": "16.0.0-alpha.6",
+    "react-native": "0.44.2",
     "react-native-navigation": "1.x.x",
-    "prop-types": "*"
+    "remx": "^2.0.19"
+  },
+  "babel": {
+    "env": {
+      "test": {
+        "presets": [
+          "react-native"
+        ]
+      }
+    }
+  },
+  "devDependencies": {
+    "jest": "^21.2.1"
   }
 }
