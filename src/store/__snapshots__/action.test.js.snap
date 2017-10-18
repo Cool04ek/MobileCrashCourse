@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`action should fetch topics 1`] = `
+Array [
+  Object {
+    "data": Object {
+      "id": "1",
+    },
+  },
+]
+`;
