@@ -25,13 +25,15 @@ android {
 
     defaultConfig {
         applicationId "com.react_native_navigation_bootstrap"
-        minSdkVersion 17
-        targetSdkVersion 22
+        minSdkVersion 18
+        targetSdkVersion 26
         versionCode 1
         versionName "1.0"
         ndk {
             abiFilters "armeabi-v7a", "x86"
         }
+        testBuildType System.getProperty('testBuildType', 'debug')
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     splits {
         abi {
@@ -40,6 +42,9 @@ android {
             universalApk false  // If true, also generate a universal APK
             include "armeabi-v7a", "x86"
         }
+    }
+    packagingOptions {
+        exclude 'META-INF/LICENSE'
     }
     buildTypes {
         release {
@@ -67,6 +72,10 @@ dependencies {
     compile "com.android.support:appcompat-v7:26.1.0"
     compile "com.facebook.react:react-native:+"  // From node_modules
     compile project(":react-native-navigation")
+  
+    androidTestCompile(project(path: ":detox", configuration: "oldOkhttpDebug"), {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
 }
 
 // Run this once to be able to run the application with BUCK

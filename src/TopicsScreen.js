@@ -14,6 +14,7 @@ import * as actions from './store/actions';
 import { Navigation } from 'react-native-navigation';
 import PostsScreen from './PostsScreen.js'
 import renderIf from './utils/utils';
+const testIds = require('./testIds');
 
 class TopicsScreen extends React.PureComponent {
 
@@ -26,9 +27,11 @@ class TopicsScreen extends React.PureComponent {
     actions.getTopics();
   }
 
-  renderRow({ item }) {
+  renderRow({ item, index }) {
+
     return (
       <TouchableOpacity
+        testID={"" + index}
         onPress={() =>
           this.props.navigator.push({
             screen: 'PostsScreen',
@@ -51,11 +54,12 @@ class TopicsScreen extends React.PureComponent {
   render() {
     return (
       <View style={styles.container}>
-        {renderIf(this.props.isLoading, <ActivityIndicator />)}
+        {this.props.isLoading && <ActivityIndicator />}
         <FlatList
           data={this.props.topics}
           keyExtractor={this.extractKey}
           renderItem={this.renderRow}
+          testID={testIds.TopicsScreen_List}
         />
       </View>
     );
